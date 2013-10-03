@@ -193,7 +193,7 @@ class syntax_plugin_medialist extends DokuWiki_Syntax_Plugin {
                     // get mediafiles of current namespace
                     $res = array(); // search result
                     require_once(DOKU_INC.'inc/search.php');
-                    search($res,$conf['mediadir'],'search_media',array(),$dir);
+                    search($res,$conf['mediadir'],'search_media',array('depth'=>1),$dir);
                     foreach($res as $item) {
                         array_push($intern_media,$item['id']);
                     }
