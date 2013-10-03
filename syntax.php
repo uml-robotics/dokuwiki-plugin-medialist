@@ -8,7 +8,7 @@
  * Syntax:  {{medialist>[pagename]}}
  *
  *   [pagename] - a valid wiki pagename (use @PAGE@ for the current page)
- * 
+ *
  * @license GPL 2 (http://www.gnu.org/licenses/gpl.html)
  * @author  Michael Klier <chi@chimeric.de>
  */
@@ -46,7 +46,7 @@ class syntax_plugin_medialist extends DokuWiki_Syntax_Plugin {
     function getType()  { return 'substition'; }
     function getPType() { return 'block'; }
     function getSort()  { return 299; }
-    
+
     /**
      * Connect pattern to lexer
      */
@@ -85,7 +85,7 @@ class syntax_plugin_medialist extends DokuWiki_Syntax_Plugin {
      * Handles the actual output creation.
      */
     function render($mode, &$renderer, $data) {
-        
+
         if($mode == 'xhtml'){
             // disable caching
             $mode = $data[0];
@@ -187,7 +187,7 @@ class syntax_plugin_medialist extends DokuWiki_Syntax_Plugin {
         }
 
         if(($mode == 'ns') or ($mode == 'all')) {
-            $dir = utf8_encode(str_replace(':','/', getNS($id)));
+            $dir = utf8_encode(str_replace(':','/', $id));
             if(@is_dir($conf['mediadir'] . '/' . $dir)) {
                 if(auth_quickaclcheck($dir) >= AUTH_READ) {
                     // get mediafiles of current namespace
